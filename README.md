@@ -1,6 +1,6 @@
 # 🦄 Unicorn Mafia Brand Guide
 
-A modern, interactive brand style guide built with **Svelte 5**, **Vite**, and **Motion One animations**.
+An interactive brand style guide built with **Svelte 5**, **Vite**, and **Motion One animations**.
 
 ---
 
