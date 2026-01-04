@@ -34,20 +34,20 @@
     {/if}
   </main>
   
-  {#if currentPage !== 'overview'}
-    <footer>
-      <div class="container">
+  <footer>
+    <div class="container">
+      {#if currentPage !== 'overview'}
         <button class="back-home" onclick={() => currentPage = 'overview'}>
           ← Back to Home
         </button>
-        <p class="mono">
-          <a href="https://www.unicrnmafia.com" target="_blank" rel="noopener">unicrnmafia.com</a>
-          {' • '}
-          <a href="mailto:stable@unicrnmafia.com">stable@unicrnmafia.com</a>
-        </p>
-      </div>
-    </footer>
-  {/if}
+      {/if}
+      <p class="mono" class:centered={currentPage === 'overview'}>
+        <a href="https://www.unicrnmafia.com" target="_blank" rel="noopener">unicrnmafia.com</a>
+        {' • '}
+        <a href="mailto:stable@unicrnmafia.com">stable@unicrnmafia.com</a>
+      </p>
+    </div>
+  </footer>
 </div>
 
 <style>
@@ -100,14 +100,18 @@
     font-size: 0.85rem;
   }
   
+  footer p.centered {
+    margin: 0 auto;
+  }
+  
   footer a {
-    color: var(--um-turquoise);
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
   }
   
   footer a:hover {
-    color: var(--um-purple);
+    color: var(--text-primary);
   }
   
   @media (max-width: 768px) {

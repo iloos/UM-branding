@@ -129,14 +129,14 @@
       
       <div class="guidelines-grid">
         <div class="guideline-card">
-          <div class="guideline-icon">📝</div>
+          <div class="guideline-icon" style="font-family: 'Inter', sans-serif;">Aa</div>
           <h3>Inter</h3>
-          <p>Use for headings, clean top-level information, title pages, and as the default text font throughout the site. Inter provides clarity and professionalism.</p>
+          <p>Headings, body text, and primary content. Provides clarity and professionalism.</p>
         </div>
         <div class="guideline-card">
-          <div class="guideline-icon">💻</div>
+          <div class="guideline-icon" style="font-family: 'Fira Code', monospace;">Aa</div>
           <h3>Fira Code</h3>
-          <p>Use for a more personal, techy feel in the details of a website. Perfect for technical specs, metadata, labels, and code snippets. Adds character and technical authenticity.</p>
+          <p>Technical specs, metadata, labels, and code snippets. Adds technical authenticity.</p>
         </div>
       </div>
     </section>
