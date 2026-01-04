@@ -229,37 +229,65 @@
       <h2>Usage Guidelines</h2>
       
       <div class="guidelines">
-        <div class="guideline-item">
-          <h3>📏 Sizing</h3>
-          <p class="mono">favicon: 64px / icons: 128-256px / web: 512px / standard: 1024px / print: 2048px+</p>
-        </div>
-        
-        <div class="guideline-item">
-          <h3>🎯 Clear Space</h3>
-          <p class="mono">minimum 25% of logo width on all sides</p>
-        </div>
-        
-        <div class="guideline-item">
-          <h3>✅ Do</h3>
-          <p>Maintain aspect ratio, use on high-contrast backgrounds, keep clear space</p>
-        </div>
-        
-        <div class="guideline-item">
-          <h3>❌ Don't</h3>
-          <p>Stretch, change colors, rotate, add effects, or place on busy backgrounds</p>
-        </div>
-        
-        <div class="guideline-item full">
-          <h3>🎨 When to Use</h3>
-          <div class="usage-examples">
-            <div class="usage-ex">
-              <span class="mono">regular (black)</span>
-              <p>Light backgrounds, white/light gray surfaces</p>
+        <div class="guideline-card">
+          <div class="guideline-icon">📏</div>
+          <h3>Recommended Sizes</h3>
+          <div class="guideline-content">
+            <div class="size-item">
+              <span class="mono label">Favicon</span>
+              <span class="mono value">64px</span>
             </div>
-            <div class="usage-ex">
-              <span class="mono">inverse (white)</span>
-              <p>Dark backgrounds, black surfaces, colored backgrounds</p>
+            <div class="size-item">
+              <span class="mono label">Social Icons</span>
+              <span class="mono value">128-256px</span>
             </div>
+            <div class="size-item">
+              <span class="mono label">Web Display</span>
+              <span class="mono value">512px</span>
+            </div>
+            <div class="size-item">
+              <span class="mono label">Standard Use</span>
+              <span class="mono value">1024px</span>
+            </div>
+            <div class="size-item">
+              <span class="mono label">Print Quality</span>
+              <span class="mono value">2048px+</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="guideline-card">
+          <div class="guideline-icon">🎯</div>
+          <h3>Clear Space</h3>
+          <div class="guideline-content">
+            <p>Maintain a minimum clear space of <strong>25% of the logo width</strong> on all sides. This ensures the logo has proper breathing room and remains visually distinct.</p>
+          </div>
+        </div>
+        
+        <div class="guideline-card">
+          <div class="guideline-icon">✅</div>
+          <h3>Best Practices</h3>
+          <div class="guideline-content">
+            <ul class="checklist">
+              <li>Always maintain the original aspect ratio</li>
+              <li>Use on high-contrast backgrounds</li>
+              <li>Respect the clear space requirements</li>
+              <li>Use SVG format when possible</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="guideline-card">
+          <div class="guideline-icon">❌</div>
+          <h3>Avoid</h3>
+          <div class="guideline-content">
+            <ul class="checklist avoid">
+              <li>Stretching or distorting the logo</li>
+              <li>Changing the colors or removing elements</li>
+              <li>Rotating or skewing the logo</li>
+              <li>Adding effects, shadows, or outlines</li>
+              <li>Placing on busy or low-contrast backgrounds</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -514,56 +542,100 @@
   
   .guidelines {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
     margin-top: 2rem;
   }
   
-  .guideline-item {
+  .guideline-card {
     background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
     box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
   }
   
-  .guideline-item.full {
-    grid-column: 1 / -1;
+  .guideline-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--um-turquoise);
   }
   
-  .guideline-item h3 {
-    margin-bottom: 0.75rem;
-    font-size: 1.1rem;
+  .guideline-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
   }
   
-  .guideline-item p {
+  .guideline-card h3 {
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+  }
+  
+  .guideline-content {
     color: var(--text-secondary);
+  }
+  
+  .guideline-content p {
+    line-height: 1.7;
+    margin: 0;
+  }
+  
+  .guideline-content strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  
+  .size-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .size-item:last-child {
+    border-bottom: none;
+  }
+  
+  .size-item .label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .size-item .value {
+    color: var(--um-turquoise);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .checklist li {
+    padding: 0.6rem 0;
+    padding-left: 1.75rem;
+    position: relative;
     line-height: 1.6;
   }
   
-  .usage-examples {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .usage-ex {
-    background: var(--bg-secondary);
-    padding: 1rem;
-    border-radius: 8px;
-  }
-  
-  .usage-ex span {
+  .checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
     color: var(--um-turquoise);
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
   }
   
-  .usage-ex p {
-    font-size: 0.9rem;
-    margin: 0;
+  .checklist.avoid li::before {
+    content: '×';
+    color: var(--um-red);
   }
   
   @media (max-width: 768px) {
@@ -600,10 +672,15 @@
     
     .guidelines {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
     
-    .usage-examples {
-      grid-template-columns: 1fr;
+    .guideline-card {
+      padding: 1.5rem;
+    }
+    
+    .guideline-icon {
+      font-size: 2rem;
     }
   }
 </style>
