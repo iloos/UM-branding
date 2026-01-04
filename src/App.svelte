@@ -36,11 +36,16 @@
   
   <footer>
     <div class="container">
-      {#if currentPage !== 'overview'}
-        <button class="back-home" onclick={() => currentPage = 'overview'}>
-          ← Back to Home
+      <div class="footer-left">
+        {#if currentPage !== 'overview'}
+          <button class="back-home" onclick={() => currentPage = 'overview'}>
+            ← Back to Home
+          </button>
+        {/if}
+        <button class="back-to-top" onclick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          ↑ Top
         </button>
-      {/if}
+      </div>
       <p class="mono" class:centered={currentPage === 'overview'}>
         <a href="https://www.unicrnmafia.com" target="_blank" rel="noopener">unicrnmafia.com</a>
         {' • '}
@@ -81,6 +86,12 @@
     gap: 2rem;
   }
   
+  .footer-left {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
   .back-home {
     background: none;
     border: none;
@@ -92,6 +103,20 @@
   }
   
   .back-home:hover {
+    color: var(--um-turquoise);
+  }
+  
+  .back-to-top {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .back-to-top:hover {
     color: var(--um-turquoise);
   }
   
@@ -123,6 +148,10 @@
       flex-direction: column;
       text-align: center;
       padding: 0 1.5rem;
+      gap: 1rem;
+    }
+    
+    .footer-left {
       gap: 1rem;
     }
     

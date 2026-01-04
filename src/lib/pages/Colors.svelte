@@ -140,85 +140,66 @@
 }`}</code></pre>
       </div>
       
-      <div class="color-pairs">
+      <div class="demo-container">
+        <!-- Accents on Dark -->
+        <div class="demo-group">
+          <div class="pair">
+            <div class="pair-demo" style="background: #1A1A1A; color: #4EF9BD">
+              <span class="mono">Turquo on Black</span>
+            </div>
+          </div>
+          <div class="pair">
+            <div class="pair-demo" style="background: #1A1A1A; color: #EE1701">
+              <span class="mono">Red on Black</span>
+            </div>
+          </div>
+          <div class="pair">
+            <div class="pair-demo" style="background: #1A1A1A; color: #B307EB">
+              <span class="mono">Purple on Black</span>
+            </div>
+          </div>
+          <div class="pair">
+            <div class="pair-demo" style="background: #1A1A1A; color: #3198F1">
+              <span class="mono">Blue on Black</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Accents as backgrounds -->
+        <div class="demo-group">
+          <div class="pair">
+            <div class="pair-demo" style="background: #4EF9BD; color: #1A1A1A">
+              <span class="mono">Black on Turquo</span>
+            </div>
+          </div>
+          <div class="pair">
+            <div class="pair-demo" style="background: #EE1701; color: #F8F8F8">
+              <span class="mono">White on Red</span>
+            </div>
+          </div>
+          <div class="pair">
+            <div class="pair-demo" style="background: #B307EB; color: #F8F8F8">
+              <span class="mono">White on Purple</span>
+            </div>
+          </div>
+          <div class="pair">
+            <div class="pair-demo" style="background: #3198F1; color: #F8F8F8">
+              <span class="mono">White on Blue</span>
+            </div>
+          </div>
+        </div>
+        
         <!-- Foundation -->
-        <div class="pair">
-          <div class="pair-demo" style="background: #F8F8F8; color: #1A1A1A; border: 1px solid #DADADA">
-            <span class="mono">Off-Black on Off-White</span>
+        <div class="demo-group foundation">
+          <div class="pair">
+            <div class="pair-demo" style="background: #F8F8F8; color: #1A1A1A; border: 1px solid #DADADA">
+              <span class="mono">Black on White</span>
+            </div>
           </div>
-        </div>
-        <div class="pair">
-          <div class="pair-demo" style="background: #1A1A1A; color: #F8F8F8">
-            <span class="mono">Off-White on Off-Black</span>
-          </div>
-        </div>
-        <div class="pair empty"></div>
-        
-        <!-- Turquoise -->
-        <div class="pair">
-          <div class="pair-demo" style="background: #F8F8F8; color: #4EF9BD; border: 1px solid #DADADA">
-            <span class="mono">Turquoise on Off-White</span>
-          </div>
-        </div>
-        <div class="pair">
-          <div class="pair-demo" style="background: #1A1A1A; color: #4EF9BD">
-            <span class="mono">Turquoise on Off-Black</span>
-          </div>
-        </div>
-        <div class="pair">
-          <div class="pair-demo" style="background: #4EF9BD; color: #1A1A1A">
-            <span class="mono">Off-Black on Turquoise</span>
-          </div>
-        </div>
-        
-        <!-- Red -->
-        <div class="pair">
-          <div class="pair-demo" style="background: #F8F8F8; color: #EE1701; border: 1px solid #DADADA">
-            <span class="mono">Red on Off-White</span>
-          </div>
-        </div>
-        <div class="pair">
-          <div class="pair-demo" style="background: #1A1A1A; color: #EE1701">
-            <span class="mono">Red on Off-Black</span>
-          </div>
-        </div>
-        <div class="pair">
-          <div class="pair-demo" style="background: #EE1701; color: #F8F8F8">
-            <span class="mono">Off-White on Red</span>
-          </div>
-        </div>
-        
-        <!-- Purple -->
-        <div class="pair">
-          <div class="pair-demo" style="background: #F8F8F8; color: #B307EB; border: 1px solid #DADADA">
-            <span class="mono">Purple on Off-White</span>
-          </div>
-        </div>
-        <div class="pair">
-          <div class="pair-demo" style="background: #1A1A1A; color: #B307EB">
-            <span class="mono">Purple on Off-Black</span>
-          </div>
-        </div>
-        <div class="pair">
-          <div class="pair-demo" style="background: #B307EB; color: #F8F8F8">
-            <span class="mono">Off-White on Purple</span>
-          </div>
-        </div>
-        
-        <!-- Blue -->
-        <div class="pair">
-          <div class="pair-demo" style="background: #F8F8F8; color: #3198F1; border: 1px solid #DADADA">
-            <span class="mono">Blue on Off-White</span>
-          </div>
-        </div>
-        <div class="pair">
-          <div class="pair-demo" style="background: #1A1A1A; color: #3198F1">
-            <span class="mono">Blue on Off-Black</span>
-          </div>
-        </div>
-        <div class="pair">
-          <div class="pair-demo" style="background: #3198F1; color: #F8F8F8">
-            <span class="mono">Off-White on Blue</span>
+          <div class="pair">
+            <div class="pair-demo" style="background: #1A1A1A; color: #F8F8F8">
+              <span class="mono">White on Black</span>
+            </div>
           </div>
         </div>
       </div>
@@ -411,15 +392,21 @@
     color: var(--text-primary);
   }
   
-  .color-pairs {
+  .demo-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
     margin-top: 2rem;
   }
   
-  .pair.empty {
-    visibility: hidden;
+  .demo-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .demo-group.foundation {
+    grid-template-columns: 1fr;
   }
   
   .pair-demo {
@@ -474,13 +461,10 @@
       padding: 1.5rem;
     }
     
-    .color-pairs {
+    .demo-container {
       grid-template-columns: 1fr;
-    }
-    
-    .pair.empty {
-      display: none;
     }
   }
 </style>
+
 
