@@ -1,12 +1,10 @@
 import { writable } from 'svelte/store';
 
-// Get initial theme from localStorage or system preference
+// Get initial theme from localStorage or default to light mode
 const getInitialTheme = () => {
   if (typeof window !== 'undefined') {
     const stored = localStorage.getItem('theme');
     if (stored) return stored;
-    
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
   return 'light';
 };
