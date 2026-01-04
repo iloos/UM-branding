@@ -2,7 +2,7 @@
 node_modules/
 
 # Build output
-# dist/ - Committed for GitHub Pages deployment
+dist/
 
 # OS files
 .DS_Store
