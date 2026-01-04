@@ -25,14 +25,19 @@
     { id: 'logo', title: 'Logo', color: '#3198F1' }
   ];
   
-  function handleScroll() {
-    scrollY = window.scrollY;
+  function handleScroll(e) {
+    // Get scroll position from the .overview element
+    const target = e.target;
+    scrollY = target.scrollTop;
     // Logo moves 1.5x faster (parallax effect)
     logoTransform = scrollY * 1.5;
   }
   
   onMount(() => {
-    window.addEventListener('scroll', handleScroll);
+    const overviewEl = document.querySelector('.overview');
+    if (overviewEl) {
+      overviewEl.addEventListener('scroll', handleScroll);
+    }
     
     animate('.hero-logo',
       { opacity: [0, 1], scale: [0.8, 1] },
@@ -60,7 +65,9 @@
     );
     
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (overviewEl) {
+        overviewEl.removeEventListener('scroll', handleScroll);
+      }
     };
   });
 </script>
@@ -97,7 +104,7 @@
         Visit Community Site →
       </a>
     </div>
-    <button class="scroll-indicator" onclick={scrollToQuadrants}>
+    <button class="scroll-indicator" onclick={scrollToQuadrants} aria-label="Scroll to sections">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 5v14M19 12l-7 7-7-7"/>
       </svg>

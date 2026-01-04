@@ -9,6 +9,45 @@
   import Logo from './lib/pages/Logo.svelte';
   
   let currentPage = $state('overview');
+  let showFooter = $state(false);
+  
+  $effect(() => {
+    // Reset footer visibility when page changes
+    showFooter = false;
+    
+    const handleScroll = () => {
+      if (currentPage === 'overview') {
+        // For overview page, check scroll on the .overview element
+        const overviewEl = document.querySelector('.overview');
+        if (overviewEl) {
+          showFooter = overviewEl.scrollTop > 100;
+        }
+      } else {
+        // For other pages, check window scroll
+        showFooter = window.scrollY > 100;
+      }
+    };
+    
+    if (currentPage === 'overview') {
+      // Wait for overview element to mount
+      setTimeout(() => {
+        const overviewEl = document.querySelector('.overview');
+        if (overviewEl) {
+          overviewEl.addEventListener('scroll', handleScroll);
+        }
+      }, 100);
+      
+      return () => {
+        const overviewEl = document.querySelector('.overview');
+        if (overviewEl) {
+          overviewEl.removeEventListener('scroll', handleScroll);
+        }
+      };
+    } else {
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+  });
   
   onMount(() => {
     document.documentElement.setAttribute('data-theme', $theme);
@@ -34,25 +73,36 @@
     {/if}
   </main>
   
-  <footer>
-    <div class="container">
-      <div class="footer-left">
-        {#if currentPage !== 'overview'}
-          <button class="back-home" onclick={() => currentPage = 'overview'}>
-            ← Back to Home
+  {#if showFooter}
+    <footer>
+      <div class="container">
+        <div class="footer-left">
+          {#if currentPage !== 'overview'}
+            <button class="back-home" onclick={() => currentPage = 'overview'}>
+              ← Back to Home
+            </button>
+          {/if}
+          <button class="back-to-top" onclick={() => {
+            if (currentPage === 'overview') {
+              const overviewEl = document.querySelector('.overview');
+              if (overviewEl) {
+                overviewEl.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}>
+            ↑ Top
           </button>
-        {/if}
-        <button class="back-to-top" onclick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          ↑ Top
-        </button>
+        </div>
+        <p class="mono" class:centered={currentPage === 'overview'}>
+          <a href="https://www.unicrnmafia.com" target="_blank" rel="noopener">unicrnmafia.com</a>
+          {' • '}
+          <a href="mailto:stable@unicrnmafia.com">stable@unicrnmafia.com</a>
+        </p>
       </div>
-      <p class="mono" class:centered={currentPage === 'overview'}>
-        <a href="https://www.unicrnmafia.com" target="_blank" rel="noopener">unicrnmafia.com</a>
-        {' • '}
-        <a href="mailto:stable@unicrnmafia.com">stable@unicrnmafia.com</a>
-      </p>
-    </div>
-  </footer>
+    </footer>
+  {/if}
 </div>
 
 <style>
@@ -74,6 +124,18 @@
     background: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
     padding: 1.5rem 0;
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .container {
