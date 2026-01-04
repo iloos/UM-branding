@@ -1,0 +1,319 @@
+/* Unicorn Mafia Brand Style Guide - Minimal & Clean */
+
+:root {
+    --um-black: #000000;
+    --um-white: #FFFFFF;
+    --um-red: #EE1701;
+    --um-turquoise: #4EF9BD;
+    --um-purple: #B307EB;
+    --um-blue: #3198F1;
+    --um-gray: #888888;
+    --um-gray-light: #F5F5F5;
+    
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Fira Code', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: var(--um-white);
+    color: var(--um-black);
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    background: var(--um-black);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav .brand {
+    color: var(--um-white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--um-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--um-turquoise);
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 3rem 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 2rem 0 0.5rem 0;
+}
+
+.subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--um-gray);
+    margin-bottom: 2rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Color Grid */
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.color-card {
+    background: var(--um-white);
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.color-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.color-swatch {
+    height: 120px;
+    width: 100%;
+}
+
+.color-info {
+    padding: 1rem;
+}
+
+.color-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.color-code {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--um-gray);
+    display: block;
+    margin: 0.25rem 0;
+}
+
+.copy-btn {
+    background: var(--um-black);
+    color: var(--um-white);
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+}
+
+.copy-btn:hover {
+    background: var(--um-turquoise);
+    color: var(--um-black);
+}
+
+.copied {
+    background: var(--um-turquoise) !important;
+    color: var(--um-black) !important;
+}
+
+/* Typography Samples */
+.type-demo {
+    background: var(--um-gray-light);
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+.type-spec {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--um-gray);
+    margin-top: 0.5rem;
+}
+
+/* Logo Grid */
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.logo-box {
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-box.dark {
+    background: var(--um-black);
+    border-color: var(--um-black);
+}
+
+.logo-box img {
+    max-width: 200px;
+    margin: 1rem auto;
+}
+
+.download-group {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.download-group select {
+    width: 100%;
+    padding: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.download-btn {
+    width: 100%;
+    background: var(--um-black);
+    color: var(--um-white);
+    border: none;
+    padding: 0.6rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.download-btn:hover {
+    background: var(--um-turquoise);
+    color: var(--um-black);
+}
+
+/* Grid Layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Code Blocks */
+code {
+    font-family: var(--font-mono);
+    background: var(--um-gray-light);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+}
+
+pre {
+    background: var(--um-black);
+    color: var(--um-turquoise);
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+}
+
+pre code {
+    background: none;
+    color: var(--um-turquoise);
+    padding: 0;
+}
+
+/* Section */
+section {
+    margin: 4rem 0;
+}
+
+/* Utilities */
+.mono {
+    font-family: var(--font-mono);
+}
+
+.text-gray {
+    color: var(--um-gray);
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+    
+    .container {
+        padding: 2rem 1rem;
+    }
+}

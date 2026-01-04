@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo - Unicorn Mafia Brand Guide</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="brand">UNICORN MAFIA</a>
+        <ul>
+            <li><a href="index.html">overview</a></li>
+            <li><a href="colors.html">colors</a></li>
+            <li><a href="typography.html">typography</a></li>
+            <li><a href="logo.html">logo</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Logo</h1>
+        <p class="subtitle">pixel-art unicorn with vibrant accent colors</p>
+
+        <section>
+            <h2>The Mark</h2>
+            <p>Distinctive pixel-art unicorn representing innovation and technical excellence. The accent colors (turquoise, red, purple, blue) symbolize the diverse skills in our community.</p>
+            
+            <div class="logo-grid">
+                <div class="logo-box">
+                    <img src="images/UnicornMafia_logo.svg" alt="Unicorn Mafia Logo">
+                    <p class="mono text-gray" style="margin-top: 1rem;">regular / for light backgrounds</p>
+                </div>
+
+                <div class="logo-box dark">
+                    <img src="images/UnicornMafia_logo_inverse.svg" alt="Unicorn Mafia Logo Inverse">
+                    <p class="mono" style="color: #888; margin-top: 1rem;">inverse / for dark backgrounds</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Downloads</h2>
+            <p class="mono text-gray" style="font-size: 0.9rem; margin-bottom: 2rem;">click to download / all files include transparency</p>
+            
+            <h3>Regular Version (black unicorn)</h3>
+            <div class="grid-2" style="margin-bottom: 3rem;">
+                <div style="border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem;">
+                    <h4 class="mono" style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">SVG</h4>
+                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">vector / scalable</p>
+                    <button class="download-btn" onclick="downloadFile('images/UnicornMafia_logo.svg', 'UnicornMafia_logo.svg')">
+                        Download SVG
+                    </button>
+                </div>
+
+                <div style="border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem;">
+                    <h4 class="mono" style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">PNG</h4>
+                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">1024px / transparent</p>
+                    <button class="download-btn" onclick="downloadPNG('regular', 1024)">
+                        Download PNG
+                    </button>
+                </div>
+            </div>
+
+            <h3>Inverse Version (white unicorn)</h3>
+            <div class="grid-2">
+                <div style="border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem;">
+                    <h4 class="mono" style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">SVG</h4>
+                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">vector / scalable</p>
+                    <button class="download-btn" onclick="downloadFile('images/UnicornMafia_logo_inverse.svg', 'UnicornMafia_logo_inverse.svg')">
+                        Download SVG
+                    </button>
+                </div>
+
+                <div style="border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem;">
+                    <h4 class="mono" style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">PNG</h4>
+                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">1024px / transparent</p>
+                    <button class="download-btn" onclick="downloadPNG('inverse', 1024)">
+                        Download PNG
+                    </button>
+                </div>
+            </div>
+
+            <p class="mono text-gray" style="font-size: 0.85rem; margin-top: 2rem;">need different sizes? contact stable@unicrnmafia.com</p>
+        </section>
+
+        <section>
+            <h2>Guidelines</h2>
+            
+            <h3>Sizing</h3>
+            <p class="mono text-gray" style="font-size: 0.9rem;">minimum: 50px / optimal: 100-200px / print: 300dpi+</p>
+
+            <h3 style="margin-top: 2rem;">Clear Space</h3>
+            <p class="mono text-gray" style="font-size: 0.9rem;">minimum 25% of logo width on all sides</p>
+
+            <h3 style="margin-top: 2rem;">Usage</h3>
+            <p><strong>Do:</strong> Maintain aspect ratio, use on high-contrast backgrounds, keep clear space</p>
+            <p><strong>Don't:</strong> Stretch, change colors, rotate, add effects, or place on busy backgrounds</p>
+
+            <h3 style="margin-top: 2rem;">When to Use</h3>
+            <p class="mono text-gray" style="font-size: 0.9rem;">
+                regular (black) → light backgrounds, white/light gray surfaces<br>
+                inverse (white) → dark backgrounds, black surfaces, colored backgrounds
+            </p>
+        </section>
+    </div>
+
+    <script>
+        function downloadFile(url, filename) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function downloadPNG(version, size) {
+            const filename = version === 'inverse' 
+                ? 'UnicornMafia_logo_inverse.svg' 
+                : 'UnicornMafia_logo.svg';
+            
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+                
+                // Transparent background
+                ctx.clearRect(0, 0, size, size);
+                
+                // Draw image
+                ctx.drawImage(img, 0, 0, size, size);
+                
+                // Download
+                canvas.toBlob(function(blob) {
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    const suffix = version === 'inverse' ? '_inverse' : '';
+                    link.download = `UnicornMafia_logo${suffix}_${size}px.png`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(link.href);
+                });
+            };
+            
+            // Load SVG
+            fetch('images/' + filename)
+                .then(r => r.text())
+                .then(text => {
+                    const blob = new Blob([text], { type: 'image/svg+xml' });
+                    const url = URL.createObjectURL(blob);
+                    img.src = url;
+                });
+        }
+    </script>
+</body>
+</html>
