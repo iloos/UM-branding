@@ -92,8 +92,9 @@
         <span class="separator">/</span>
         <span class="secondary">Brand Style Guide</span>
       </h1>
+      <p class="hero-subtitle mono">Select a section below to explore</p>
       <a href="https://www.unicrnmafia.com" target="_blank" rel="noopener" class="hero-link mono">
-        unicrnmafia.com →
+        Visit Community Site →
       </a>
     </div>
     <button class="scroll-indicator" onclick={scrollToQuadrants}>
@@ -115,9 +116,11 @@
         class="quadrant"
         onclick={() => onNavigate(quad.id)}
         style="--accent-color: {quad.color}; --delay: {i * 0.1}s"
+        aria-label="Navigate to {quad.title}"
       >
         <div class="quad-overlay"></div>
         <h2 class="quad-title mono">{quad.title}</h2>
+        <div class="quad-arrow mono">→</div>
       </button>
       {/each}
     </div>
@@ -215,21 +218,33 @@
     opacity: 0.5;
   }
   
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.6s;
+    font-weight: 500;
+  }
+  
   .hero-link {
     display: inline-block;
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     opacity: 0;
     transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 20px;
     margin-top: 0.5rem;
+    border: 1px solid var(--border-color);
   }
   
   .hero-link:hover {
     color: var(--um-turquoise);
     background: var(--bg-secondary);
+    border-color: var(--um-turquoise);
   }
   
   .scroll-indicator {
@@ -366,7 +381,25 @@
   
   .quadrant:hover .quad-title {
     color: #1A1A1A;
-    transform: scale(1.05);
+    transform: scale(1.05) translateY(-10px);
+  }
+  
+  .quad-arrow {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: var(--text-secondary);
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(-20px);
+  }
+  
+  .quadrant:hover .quad-arrow {
+    opacity: 1;
+    color: #1A1A1A;
+    transform: translateX(0);
   }
   
   
@@ -405,6 +438,15 @@
       padding: 0 0.4rem;
     }
     
+    .hero-subtitle {
+      font-size: 0.95rem;
+    }
+    
+    .hero-link {
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+    }
+    
     .scroll-indicator {
       bottom: 2rem;
       width: 40px;
@@ -438,6 +480,12 @@
     
     .quad-title {
       font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+    
+    .quad-arrow {
+      font-size: 1.5rem;
+      bottom: 1.5rem;
+      right: 1.5rem;
     }
   }
 </style>

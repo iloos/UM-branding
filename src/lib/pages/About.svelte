@@ -6,7 +6,7 @@
     { label: 'Elite', value: 'Not Elitist', desc: 'Top talent, open mindset', color: '#4EF9BD' },
     { label: 'Technical', value: 'Yet Accessible', desc: 'Deep expertise, clear communication', color: '#EE1701' },
     { label: 'Professional', value: 'Still Raw', desc: 'High standards, authentic energy', color: '#B307EB' },
-    { label: 'Community', value: 'Always First', desc: 'We rise together', color: '#3198F1' }
+    { label: 'Collaborative', value: 'Competitive', desc: 'Rise together, win together', color: '#3198F1' }
   ];
   
   const stats = [
@@ -70,7 +70,7 @@
       <div class="tone-grid">
         <div class="tone-item">
           <h3>Confident</h3>
-          <p>We're the best builders in London. No question.</p>
+          <p>We're the best builders in London/EU. No question.</p>
         </div>
         <div class="tone-item">
           <h3>Direct</h3>
