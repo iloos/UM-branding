@@ -26,6 +26,12 @@
     { tag: 'P', size: '1rem / 16px', weight: '400', spacing: 'normal', sample: 'Body text and paragraphs use Inter at 1rem with weight 400. Line height is set to 1.6 for comfortable reading.' }
   ];
   
+  let selectedFont = $state('Inter');
+  
+  function getFontFamily(font) {
+    return font === 'Inter' ? "'Inter', sans-serif" : "'Fira Code', monospace";
+  }
+  
   onMount(() => {
     inView('.typeface-card', ({ target }) => {
       animate(target,
@@ -69,13 +75,33 @@
     
     <!-- Type Scale -->
     <section class="section">
-      <h2>Type Scale</h2>
-      <p class="mono desc">Live examples at actual sizes</p>
+      <div class="scale-header">
+        <div>
+          <h2>Type Scale</h2>
+          <p class="mono desc">Live examples at actual sizes</p>
+        </div>
+        <div class="font-toggle">
+          <button 
+            class="toggle-btn"
+            class:active={selectedFont === 'Inter'}
+            onclick={() => selectedFont = 'Inter'}
+          >
+            Inter
+          </button>
+          <button 
+            class="toggle-btn"
+            class:active={selectedFont === 'Fira Code'}
+            onclick={() => selectedFont = 'Fira Code'}
+          >
+            Fira Code
+          </button>
+        </div>
+      </div>
       
       <div class="type-scale">
         {#each typeScale as item}
           <div class="scale-item">
-            <div class="scale-sample">
+            <div class="scale-sample" style="font-family: {getFontFamily(selectedFont)}">
               {#if item.tag === 'H1'}
                 <h1>{item.sample}</h1>
               {:else if item.tag === 'H2'}
@@ -196,6 +222,47 @@ body {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-bottom: 2rem;
+  }
+  
+  .scale-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+  
+  .font-toggle {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--bg-secondary);
+    padding: 0.5rem;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+  }
+  
+  .toggle-btn {
+    padding: 0.6rem 1.25rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .toggle-btn:hover {
+    color: var(--text-primary);
+    background: var(--bg-elevated);
+  }
+  
+  .toggle-btn.active {
+    background: var(--um-turquoise);
+    color: var(--um-black);
   }
   
   .typeface-card {
@@ -380,6 +447,21 @@ body {
     
     .container {
       padding: 0 1.5rem;
+    }
+    
+    .scale-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .font-toggle {
+      width: 100%;
+    }
+    
+    .toggle-btn {
+      flex: 1;
+      padding: 0.7rem 1rem;
     }
     
     .typeface-card {
