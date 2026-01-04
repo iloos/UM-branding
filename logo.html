@@ -41,24 +41,40 @@
 
         <section>
             <h2>Downloads</h2>
-            <p class="mono text-gray" style="font-size: 0.9rem; margin-bottom: 2rem;">click to download / all files include transparency</p>
+            <p class="mono text-gray" style="font-size: 0.9rem; margin-bottom: 2rem;">click to download / choose format and resolution</p>
             
             <h3>Regular Version (black unicorn)</h3>
             <div class="grid-2" style="margin-bottom: 3rem;">
                 <div style="border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem;">
                     <h4 class="mono" style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">SVG</h4>
-                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">vector / scalable</p>
+                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">vector / scalable / recommended</p>
                     <button class="download-btn" onclick="downloadFile('images/UnicornMafia_logo.svg', 'UnicornMafia_logo.svg')">
                         Download SVG
                     </button>
                 </div>
 
                 <div style="border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem;">
-                    <h4 class="mono" style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">PNG</h4>
-                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">1024px / transparent</p>
-                    <button class="download-btn" onclick="downloadPNG('regular', 1024)">
-                        Download PNG
-                    </button>
+                    <h4 class="mono" style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">PNG / JPG</h4>
+                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">raster / transparent or solid background</p>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label class="mono text-gray" style="font-size: 0.75rem; display: block; margin-bottom: 0.5rem;">SIZE</label>
+                        <select id="regular-size" style="width: 100%; padding: 0.5rem; border: 1px solid #E0E0E0; border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.85rem;">
+                            <option value="512">512px - web icons</option>
+                            <option value="1024" selected>1024px - standard</option>
+                            <option value="2048">2048px - retina</option>
+                            <option value="4096">4096px - print</option>
+                        </select>
+                    </div>
+                    
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="download-btn" onclick="downloadImage('regular', 'png')" style="flex: 1; padding: 0.6rem;">
+                            PNG
+                        </button>
+                        <button class="download-btn" onclick="downloadImage('regular', 'jpg')" style="flex: 1; padding: 0.6rem; background: #000; color: #fff;">
+                            JPG
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -66,22 +82,38 @@
             <div class="grid-2">
                 <div style="border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem;">
                     <h4 class="mono" style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">SVG</h4>
-                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">vector / scalable</p>
+                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">vector / scalable / recommended</p>
                     <button class="download-btn" onclick="downloadFile('images/UnicornMafia_logo_inverse.svg', 'UnicornMafia_logo_inverse.svg')">
                         Download SVG
                     </button>
                 </div>
 
                 <div style="border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem;">
-                    <h4 class="mono" style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">PNG</h4>
-                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">1024px / transparent</p>
-                    <button class="download-btn" onclick="downloadPNG('inverse', 1024)">
-                        Download PNG
-                    </button>
+                    <h4 class="mono" style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">PNG / JPG</h4>
+                    <p class="mono text-gray" style="font-size: 0.8rem; margin-bottom: 1rem;">raster / transparent or solid background</p>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label class="mono text-gray" style="font-size: 0.75rem; display: block; margin-bottom: 0.5rem;">SIZE</label>
+                        <select id="inverse-size" style="width: 100%; padding: 0.5rem; border: 1px solid #E0E0E0; border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.85rem;">
+                            <option value="512">512px - web icons</option>
+                            <option value="1024" selected>1024px - standard</option>
+                            <option value="2048">2048px - retina</option>
+                            <option value="4096">4096px - print</option>
+                        </select>
+                    </div>
+                    
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="download-btn" onclick="downloadImage('inverse', 'png')" style="flex: 1; padding: 0.6rem;">
+                            PNG
+                        </button>
+                        <button class="download-btn" onclick="downloadImage('inverse', 'jpg')" style="flex: 1; padding: 0.6rem; background: #000; color: #fff;">
+                            JPG
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <p class="mono text-gray" style="font-size: 0.85rem; margin-top: 2rem;">need different sizes? contact stable@unicrnmafia.com</p>
+            <p class="mono text-gray" style="font-size: 0.85rem; margin-top: 2rem;">PNG has transparent background / JPG has white or black background</p>
         </section>
 
         <section>
@@ -106,6 +138,7 @@
     </div>
 
     <script>
+        // Direct SVG download
         function downloadFile(url, filename) {
             const link = document.createElement('a');
             link.href = url;
@@ -115,7 +148,13 @@
             document.body.removeChild(link);
         }
 
-        function downloadPNG(version, size) {
+        // Convert SVG to PNG or JPG with custom resolution
+        function downloadImage(version, format) {
+            // Get selected size
+            const sizeSelect = document.getElementById(`${version}-size`);
+            const size = parseInt(sizeSelect.value);
+            
+            // Get SVG filename
             const filename = version === 'inverse' 
                 ? 'UnicornMafia_logo_inverse.svg' 
                 : 'UnicornMafia_logo.svg';
@@ -129,23 +168,37 @@
                 canvas.height = size;
                 const ctx = canvas.getContext('2d');
                 
-                // Transparent background
-                ctx.clearRect(0, 0, size, size);
+                // Set background based on format
+                if (format === 'jpg') {
+                    // White background for regular, black for inverse
+                    ctx.fillStyle = version === 'inverse' ? '#000000' : '#FFFFFF';
+                    ctx.fillRect(0, 0, size, size);
+                } else {
+                    // Transparent background for PNG
+                    ctx.clearRect(0, 0, size, size);
+                }
                 
                 // Draw image
                 ctx.drawImage(img, 0, 0, size, size);
                 
-                // Download
+                // Convert to blob and download
+                const mimeType = format === 'jpg' ? 'image/jpeg' : 'image/png';
+                const quality = format === 'jpg' ? 0.95 : undefined;
+                
                 canvas.toBlob(function(blob) {
                     const link = document.createElement('a');
                     link.href = URL.createObjectURL(blob);
                     const suffix = version === 'inverse' ? '_inverse' : '';
-                    link.download = `UnicornMafia_logo${suffix}_${size}px.png`;
+                    link.download = `UnicornMafia_logo${suffix}_${size}px.${format}`;
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
                     URL.revokeObjectURL(link.href);
-                });
+                }, mimeType, quality);
+            };
+            
+            img.onerror = function() {
+                alert('Error loading logo. Please try again.');
             };
             
             // Load SVG
@@ -155,6 +208,10 @@
                     const blob = new Blob([text], { type: 'image/svg+xml' });
                     const url = URL.createObjectURL(blob);
                     img.src = url;
+                })
+                .catch(err => {
+                    alert('Error loading logo. Please try again.');
+                    console.error(err);
                 });
         }
     </script>
